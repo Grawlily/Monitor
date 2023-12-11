@@ -1,0 +1,13 @@
+# Docker Storage
+
+## Grafana
+/grafana/grafana_data/*
+!/grafana/grafana_data/.gitkeep
+/grafana/grafana_logs/*
+!/grafana/grafana_logs/.gitkeep
+## Prometheus
+/prometheus/prometheus_data/*
+!/prometheus/prometheus_data/.gitkeep
+
+# Mac
+.DS_Store

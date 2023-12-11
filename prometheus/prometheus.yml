@@ -1,0 +1,19 @@
+# Prometheus Config
+
+global:
+  scrape_interval:     15s
+  evaluation_interval: 15s
+scrape_configs:
+  - job_name: Local_Node
+    static_configs:
+      - targets:
+        -  node-exporter:9100:Monitor
+    relabel_configs:
+      - source_labels: [__address__]
+        regex: '([^:]+):(\d+):(.*)'
+        target_label: instance
+        replacement: '${3}:${2}'
+      - source_labels: [__address__]
+        regex: '([^:]+):(\d+):(.*)'
+        target_label: __address__
+        replacement: '${1}:${2}'
